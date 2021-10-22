@@ -36,12 +36,12 @@ public class BankAccount<s1, s2> {
 	}
 	
 	void withdraw(int amount) {
+		if(amount > balance) {
+			errorMessage("Not enough money!!");
+		}
 		if(amount > 0 && balance > 0) {
 			balance = balance - amount;
 			previousTransaction = -amount;
-		}else if(amount > balance) {
-			errorMessage("Not enough money!!");
-			
 		}else {
 		
 			if(amount <= 0) {
